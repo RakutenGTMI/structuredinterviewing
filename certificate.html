@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>Certificate</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" href="">
+
+<style>
+	
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+.result {
+	position:absolute;
+	left:180px;
+	top:330px;
+	width:700px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:36px;
+	font-weight:normal;
+	text-align:center;
+	color:#000000;
+	z-index:2;
+
+}
+
+.bgimage {
+	position: absolute;
+	left:60px;
+	top:40px;
+	z-index: 1;
+}
+.print{
+	position: absolute;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	z-index: 2;
+	left: 900px;
+	top: 7px;
+}
+.date {
+	position:absolute;
+	left:450px;
+	top:470px;
+	width:400px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:22px;
+	font-weight:normal;
+	text-align:left;
+	color:#000000;
+	z-index:2;
+}
+a:link {color:#121ed7;}    
+a:visited {color:#c3c3c3;} 
+a:hover {color: #0099FF;} 
+a:active {color:#ffff66;} 
+
+
+</style>
+
+<style type='text/css' media='print'>
+
+	#printLink {display : none}
+	@page 
+    {
+        size: landscape;   /* auto is the initial value */
+          margin: 0mm /*;this affects the margin in the printer settings */
+    }
+
+</style>
+<head>
+<body>
+
+<div class="bgimage"> <img style="width: 940px;" src='OU-Certificate-LS-Template.png'/></div>
+<div class="print">
+  <h2><a href="javascript:window.print()" id='printLink'><strong>Save/Print</strong></a></h2>
+</div>
+<SCRIPT>
+	//this grabs the player object from the parent (launching window)
+	var player=window.opener.GetPlayer();
+	//now we pull a field value. You can pull as many as you like. That replace jumble lets you bring over text fields with multiple lines.
+	var learnerName=player.GetVar("newName").replace(/(\r\n|\r|\n)/g, '<br />');
+	var sysdate=player.GetVar("DateValue").replace(/(\r\n|\r|\n)/g, '<br />');
+	document.write("<div class='result'>"+learnerName+"</div>");
+	document.write("<div class='date'>"+sysdate+"</div>");	
+</SCRIPT>
+
+</body>
+</html><!DOCTYPE HTML>
